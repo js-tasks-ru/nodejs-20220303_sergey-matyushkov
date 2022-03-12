@@ -16,7 +16,7 @@ class LimitSizeStream extends stream.Transform {
 
   _transform(chunk, encoding, callback) {
     if (this.isExeeded(chunk.length)) {
-      this.emit('error', new LimitExceededError());
+      callback(new LimitExceededError()); // this.emit('error', new LimitExceededError());
       return;
     }
 
