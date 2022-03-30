@@ -7,7 +7,7 @@ module.exports = new LocalStrategy(
       const [user] = await User.find({email});
 
       if (!user) {
-        done(null, false, 'Неверный email');
+        done(null, false, 'Нет такого пользователя');
         return;
       }
 
